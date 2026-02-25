@@ -1,0 +1,17 @@
+indicator_id,label,unit,fmt,proj_indicator_id,trend_series_id,transform,ref_period
+GDP_PPP_2023_bn,"GDP in 2023 (Billion USD, 2023)",Billion USD,"0,0",,out_gdp_ppp_level,,2023
+GDP_growth_2223_pct,"GDP growth (%, 2022–23)",Percent,0.0,GDP_growth_proj_2530_pct,,,2022–23
+GDPpc_PPP_2023_kUSD,"Per capita GDP in 2023 (Thousand USD, 2023)",Thousand USD,0.0,,,,2023
+Population_2022_m,"Population (million, 2022)",Million,0.0,,pop_total_level,divide:1000,2022
+Employment_2023_thousand,"Number of employment (Thousands persons, 2023)",Thousand persons,"0,0",,,,2023
+Employment_rate_2023_pct,Employment rate (2023),Percent,0.0,,,,2023
+LP_level_per_worker_2023_kUSD,"Per-worker labor productivity level (Thousand USD per worker, 2023)",Thousand USD,0.0,,,,2023
+LP_growth_2223_pct,"Per-worker labor productivity growth (%, 2022–23)",Percent,0.0,LP_growth_proj_2530_pct,,,2022–23
+Agri_share_GDP_2023_pct,Agriculture share in GDP (2023),Percent,0.0,,,,2023
+Mfg_share_GDP_2023_pct,Manufacturing share in GDP (2023),Percent,0.0,,,,2023
+Capital_prod_growth_2223_pct,Capital productivity growth (2022–23),Percent,0.0,Capital_prod_growth_proj_2530_pct,,,2022–23
+TFP_growth_2223_pct,TFP growth (2022–23),Percent,0.0,TFP_growth_proj_2530_pct,,,2022–23
+GDP_growth_proj_2530_pct,GDP_growth_proj_2530_pct,,0.0,,,,
+LP_growth_proj_2530_pct,LP_growth_proj_2530_pct,,0.0,,,,
+Capital_prod_growth_proj_2530_pct,Capital_prod_growth_proj_2530_pct,,0.0,,,,
+TFP_growth_proj_2530_pct,TFP_growth_proj_2530_pct,,0.0,,,,

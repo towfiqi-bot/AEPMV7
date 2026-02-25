@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="en" data-theme="violet">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>APO Economic Indicator Dashboard</title>
+  <link rel="stylesheet" href="styles.css"/>
+</head>
+<body>
+  <div class="app">
+    <aside class="sidebar">
+      <div class="brand" role="button" tabindex="0" id="brandHome" aria-label="Go to Summary">
+        <img src="apo-logo.png" class="logoImg" alt="APO logo"/>
+        <div>
+          <div class="brandTitle">APO Economic Indicator Dashboard</div>
+          <div class="brandSub">Databook-style snapshot across economies</div>
+        </div>
+      </div>
+
+      <div class="nav">
+        <button class="navItem active" data-view="summary">Summary</button>
+<button class="navItem" data-view="profile">Country profile</button>
+</div>
+
+      <div class="panel" id="indicatorPanel">
+        <div class="panelTopRow">
+          <div>
+            <div class="panelTitle">Indicators</div>
+            <div class="panelHint">Browse by category; choose a view/mode.</div>
+          </div>
+          <div class="panelActions">
+            <button class="iconBtn" id="menuCollapseAllBtn" title="Collapse all" aria-label="Collapse all">−</button>
+            <button class="iconBtn" id="menuExpandAllBtn" title="Expand all" aria-label="Expand all">+</button>
+          </div>
+        </div>
+        <input class="menuSearch" id="menuSearch" placeholder="Search indicator…"/>
+        <div class="indicatorList menuTree" id="indicatorList"></div>
+      </div>
+
+      <div class="footer">
+        <div><span id="economyCount">—</span> economies loaded</div>
+        <div class="muted" id="sourceLabel">Source: Data_Master (Databook 2025 + Readiness 2025)</div>
+      </div>
+    </aside>
+
+    <div class="sidebarOverlay hidden" id="sidebarOverlay"></div>
+
+    <main class="main">
+      <div class="topbar">
+        <div class="topbarLeft">
+          <button class="iconBtn" id="sidebarToggle" aria-label="Open menu">☰</button>
+          <div class="crumbs" id="crumbs">Summary</div>
+        </div>
+        <div class="topbarRight">
+          <div class="seg" id="themeSeg" aria-label="Theme switch">
+            <button class="segBtn active" data-theme="violet">Violet</button>
+            <button class="segBtn" data-theme="dark">Dark</button>
+            <button class="segBtn" data-theme="light">Light</button>
+          </div>
+          <input class="search" id="searchBox" placeholder="Search economy… (filters charts/tables)"/>
+          <button class="btnInlineGhost" id="glossaryBtn">Glossary</button>
+          <button class="btnInline" id="exportBtn">Export view (CSV)</button>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="view" id="view-summary"></div>
+
+        <div class="view hidden" id="view-indicators">
+          <div class="card">
+            <div class="cardHeader">
+              <div>
+                <div class="cardTitle" id="indicatorTitle">Indicators</div>
+                <div class="cardSub" id="indicatorSub">Please select an indicator from the sidebar.</div>
+              </div>
+              <div class="controls">
+                <div class="seg" id="modeSeg" aria-label="Data / Projection">
+                  <button class="segBtn" data-mode="data">Data</button>
+                  <button class="segBtn" data-mode="projection">Projection</button>
+                  <button class="segBtn active" data-mode="all">All</button>
+                </div>
+                <select class="select" id="sortSelect" aria-label="Sort order">
+                  <option value="highest">Sort: highest → lowest</option>
+                  <option value="lowest">Sort: lowest → highest</option>
+                  <option value="alpha">Sort: A → Z</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="chartHint" id="chartHint">Please select an indicator.</div>
+            <div class="chartArea">
+              <div class="barList" id="barList"></div>
+            </div>
+
+            <div class="rowBetween">
+              <div class="pill" id="tableMeta">—</div>
+            </div>
+            <div class="tableWrap">
+              <table class="table" id="tableView"></table>
+            </div>
+          </div>
+        </div>
+
+        <div class="view hidden" id="view-trends">
+          <div class="card">
+            <div class="cardHeader">
+              <div>
+                <h2 style="margin:0;">Trend &amp; compare</h2>
+                <p class="muted" style="margin:6px 0 0 0;">Select economies to compare long-run movements. (Time series: 1970–2023)</p>
+              </div>
+            </div>
+
+            <div class="trendLayout">
+              <aside class="trendSide">
+                <div class="trendSideTop">
+                  <div class="trendSideTitle">Economies</div>
+                  <input id="tsEconomySearch" class="menuSearch" placeholder="Search economy…" />
+                  <div class="trendSideActions">
+                    <button id="tsAllOn" class="btnInlineGhost" type="button">All on</button>
+                    <button id="tsAllOff" class="btnInlineGhost" type="button">All off</button>
+                  </div>
+                </div>
+                <div id="tsEconomyChecklist" class="trendChecklist"></div>
+              </aside>
+
+              <section class="trendMain">
+                <div class="trendTopRow">
+                  <div>
+                    <div class="cardTitle" id="tsSelectedIndicatorLabel">Indicator</div>
+                    <div class="cardSub" id="tsSelectedIndicatorSub">Choose an indicator from the left menu.</div>
+                  </div>
+                  <div class="trendIndicatorPicker" id="tsIndicatorPicker">
+                    <label>
+                      Indicator
+                      <select id="tsIndicatorSelect"></select>
+                    </label>
+                    <label>
+                      Primary economy
+                      <select id="tsEconomySelect"></select>
+                    </label>
+                  </div>
+                </div>
+
+                <div id="tsChart" class="tsChart"></div>
+                <div id="tsFootnote" class="muted small" style="margin-top:10px;"></div>
+              </section>
+            </div>
+          </div>
+        </div>
+
+        <div class="view hidden" id="view-profile"></div>
+        <div class="view hidden" id="view-data"></div>
+      </div>
+    </main>
+  </div>
+
+  <!-- GDP breakdown modal -->
+  <div class="modal hidden" id="gdpModal" aria-hidden="true">
+    <div class="modalOverlay" id="gdpModalOverlay"></div>
+    <div class="modalCard">
+      <div class="modalHeader">
+        <div>
+          <div class="modalTitle" id="gdpModalTitle">GDP (PPP) breakdown — 2023</div>
+          <div class="modalSub">Country name + GDP size. Sorted highest → lowest.</div>
+        </div>
+        <button class="btnInlineGhost" id="gdpModalClose" aria-label="Close">Close</button>
+      </div>
+      <div class="modalBody" id="gdpModalBody"></div>
+    </div>
+  </div>
+
+  <!-- Glossary modal -->
+  <div class="modal hidden" id="glossaryModal" aria-hidden="true">
+    <div class="modalOverlay" id="glossaryModalOverlay"></div>
+    <div class="modalCard">
+      <div class="modalHeader">
+        <div>
+          <div class="modalTitle">Glossary</div>
+          <div class="modalSub">Definitions used in this dashboard.</div>
+        </div>
+        <button class="btnInlineGhost" id="glossaryModalClose" aria-label="Close">Close</button>
+      </div>
+      <div class="modalBody" id="glossaryModalBody"></div>
+    </div>
+
+  </div>
+    <script src="menu.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

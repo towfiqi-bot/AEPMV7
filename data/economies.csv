@@ -1,0 +1,34 @@
+economy_code,short_name,official_name,is_apo_member,dashboard_name
+AFG,Afghanistan,Islamic Emirate of Afghanistan,0,
+BAN,Bangladesh,People's Republic of Bangladesh,1,Bangladesh
+BHR,Bahrain,Kingdom of Bahrain,0,
+BRN,Brunei,Negara Brunei Darussalam,0,
+BTN,Bhutan,Kingdom of Bhutan,0,
+CAM,Cambodia,Kingdom of Cambodia,1,Cambodia
+CHN,China,People's Republic of China,0,
+FJI,Fiji,Republic of the Fiji Islands,0,Fiji
+HKG,Hong Kong,Hong Kong Special Administrative Region of the People's Republic of China (Area of special sovereignty),1,
+IDN,Indonesia,Republic of Indonesia,1,Indonesia
+IND,India,Republic of India,1,India
+IRN,Iran,Islamic Republic of Iran,1,Islamic Republic of Iran
+JPN,Japan,Japan,1,Japan
+KOR,Korea,Republic of Korea,1,Republic of Korea
+KWT,Kuwait,State of Kuwait,0,
+LAO,Laos,Lao People's Democratic Republic,1,Lao PDR
+MAL,Malaysia,Malaysia,1,Malaysia
+MDV,Maldives,Republic of Maldives,0,
+MGL,Mongolia,Mongolia,1,Mongolia
+MYA,Myanmar,Union of Myanmar,0,
+NEP,Nepal,State of Nepal,1,Nepal
+OMN,Oman,Sultanate of Oman,0,
+PAK,Pakistan,Islamic Republic of Pakistan,1,Pakistan
+PHL,Philippines,Republic of the Philippines,1,The Philippines
+QAT,Qatar,State of Qatar,0,
+ROC,Taiwan,Republic of China,1,Republic of China
+SAU,Saudi Arabia,Kingdom of Saudi Arabia,0,
+SIN,Singapore,Republic of Singapore,1,Singapore
+SRI,Sri Lanka,Democratic Socialist Republic of Sri Lanka,1,Sri Lanka
+THA,Thailand,Kingdom of Thailand,1,Thailand
+TUR,Turkiye,Republic of Turkiye,1,Turkiye
+UAE,UAE,United Arab Emirates,0,
+VIE,Vietnam,the Socialist Republic of Vietnam,1,Vietnam
